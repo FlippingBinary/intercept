@@ -132,12 +132,12 @@ def detect_rtlsdr_devices() -> list[SDRDevice]:
         for line in output.split('\n'):
             line = line.strip()
             match = re.match(device_pattern, line)
-            if match:
+            if match and match.group(3):
                 devices.append(SDRDevice(
                     sdr_type=SDRType.RTL_SDR,
                     index=int(match.group(1)),
                     name=match.group(2).strip().rstrip(','),
-                    serial=match.group(3) or 'N/A',
+                    serial=match.group(3),
                     driver='rtlsdr',
                     capabilities=RTLSDRCommandBuilder.CAPABILITIES
                 ))

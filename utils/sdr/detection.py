@@ -117,7 +117,9 @@ def detect_rtlsdr_devices() -> list[SDRDevice]:
             capture_output=True,
             text=True,
             timeout=5,
-            env=env 
+            env=env,
+            encoding="latin-1",
+            errors="backslashreplace"
         )
         output = result.stderr + result.stdout
 
@@ -416,6 +418,8 @@ def probe_rtlsdr_device(device_index: int) -> str | None:
             text=True,
             timeout=3,
             env=env,
+            encoding="latin-1",
+            errors="backslashreplace",
         )
         output = result.stderr + result.stdout
 

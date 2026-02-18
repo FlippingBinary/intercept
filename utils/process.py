@@ -235,7 +235,9 @@ def detect_devices() -> list[dict[str, Any]]:
             ['rtl_test', '-t'],
             capture_output=True,
             text=True,
-            timeout=5
+            timeout=5,
+            encoding="latin-1",
+            errors="backslashreplace"
         )
         output = result.stderr + result.stdout
 

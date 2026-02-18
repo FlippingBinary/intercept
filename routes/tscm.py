@@ -1400,7 +1400,9 @@ def _scan_rf_signals(
                 [rtl_test_path, '-t'],
                 capture_output=True,
                 text=True,
-                timeout=5
+                timeout=5,
+                encoding="latin-1",
+                errors="backslashreplace"
             )
             if 'No supported devices found' in test_result.stderr or test_result.returncode != 0:
                 logger.warning("No RTL-SDR device found")

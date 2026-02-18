@@ -615,7 +615,7 @@ class WeatherSatDecoder:
         try:
             result = subprocess.run(
                 ['rtl_test', '-d', str(device_index), '-t'],
-                capture_output=True, text=True, timeout=5,
+                capture_output=True, text=True, timeout=5, encoding="latin-1", errors="backslashreplace"
             )
             # rtl_test outputs: "Found 2 device(s):" then
             # "  0:  RTLSDRBlog, Blog V4, SN: 00004000"

@@ -439,7 +439,9 @@ def get_devices_debug() -> Response:
                 ['rtl_test', '-t'],
                 capture_output=True,
                 text=True,
-                timeout=5
+                timeout=5,
+                encoding="latin-1",
+                errors="backslashreplace"
             )
             diagnostics['rtl_test'] = {
                 'returncode': result.returncode,

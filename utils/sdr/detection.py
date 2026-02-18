@@ -125,7 +125,7 @@ def detect_rtlsdr_devices() -> list[SDRDevice]:
 
         # Parse device info from rtl_test output
         # Format: "0:  Realtek, RTL2838UHIDIR, SN: 00000001"
-        device_pattern = r'(\d+):\s+(.+?)(?:,\s*SN:\s*(\S+))?$'
+        device_pattern = r'(\d+):\s+(.+?)(?:,\s*SN:\s*(\S*))?$'
 
         from .rtlsdr import RTLSDRCommandBuilder
 
